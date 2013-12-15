@@ -1,3 +1,4 @@
+language: cpp # To build/install D compilers
 before_install:
   - wget http://downloads.dlang.org/releases/2013/dmd_2.064.2-0_amd64.deb
 
