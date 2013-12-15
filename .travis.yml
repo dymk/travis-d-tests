@@ -5,7 +5,8 @@ before_install:
 install:
   - . ./travis_scripts/try_install_dmd.sh
   - . ./travis_scripts/try_install_ldmd2.sh
-  - $(DC) | head -3
+  - $DC | head -3
+
 script:
   - make unittest DC=$DC
 
