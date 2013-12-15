@@ -1,6 +1,6 @@
 language: cpp # To build/install D compilers
 before_install:
-  - chmod +x travis_scripts/*.sh
+  - chmod +x ./.travis_scripts/*.sh
 
 install:
   - . ./.travis_scripts/try_install_dmd.sh
