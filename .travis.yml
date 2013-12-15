@@ -1,20 +1,10 @@
 language: cpp # To build/install D compilers
 before_install:
-  - wget http://downloads.dlang.org/releases/2013/dmd_2.064.2-0_amd64.deb
-  - wget https://github.com/ldc-developers/ldc/releases/download/v0.12.1/ldc2-0.12.1-linux-x86_64.tar.gz
+  - chmod +x travis_scripts/*.sh
 
 install:
-  - if [ "$DC" == "dmd" ]
-  - then
-  -   sudo apt-get install gcc-multilib
-  -   sudo dpkg -i dmd_2.064.2-0_amd64.deb
-  - fi
-  -
-  - if [ "$DC" == "ldmd2" ]
-  - then
-  -   gunzip ldc2-0.12.1-linux-x86_64.tar.gz
-  -   export PATH=$PATH:`pwd`/ldc2-0.12.1-linux-x86_64/bin
-  - fi
+  - ./travis_scripts/try_install_dmd.sh
+  - ./travis_scripts/try_install_ldmd2.sh
 
 script:
   - make unittest DC=$DC
